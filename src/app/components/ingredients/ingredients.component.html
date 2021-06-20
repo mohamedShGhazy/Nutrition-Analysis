@@ -1,0 +1,31 @@
+<div class="card col-md-6">
+  <div class="card-body">
+    <form (ngSubmit)="submit()">
+      <div class="d-flex justify-content-between label">
+        <label for="exampleFormControlTextarea1" class="form-label">
+          <i class="fas fa-plus-circle"></i>
+          Enter an ingredient
+        </label>
+        <span
+          >Enter each ingredient on a new line (food name, quantity and
+          unit.)</span
+        >
+      </div>
+      <textarea
+        [formControl]="ingredients"
+        class="form-control"
+        rows="5"
+        required
+      ></textarea>
+      <div class="d-flex justify-content-end">
+        <button
+          type="submit"
+          class="btn btn-outline-success mt-2 ml-auto"
+          [disabled]="!ingredients.valid"
+        >
+          Analyze
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

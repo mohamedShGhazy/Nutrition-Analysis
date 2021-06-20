@@ -1,0 +1,134 @@
+<div class="container">
+  <div class="m-1 card">
+    <button
+      type="button"
+      class="btn btn-outline-success col-1 m-2"
+      [routerLink]="['/Analys-Nutrition']"
+    >
+      <i class="fas fa-plus-circle"></i>
+      new
+    </button>
+    <div class="card-body table-responsive">
+      <table class="table">
+        <caption>
+          Ingredients list
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Qty</th>
+            <th scope="col">Unit</th>
+            <th scope="col">Food</th>
+            <th scope="col">Calories</th>
+            <th scope="col">Weight</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of ingredintList">
+            <td>{{ item.parsed[0].quantity }}</td>
+            <td>{{ item.parsed[0].measure }}</td>
+            <td>{{ item.parsed[0].foodMatch }}</td>
+            <td>
+              {{ item.parsed[0].nutrients.ENERC_KCAL.quantity.toFixed(1) }} kcal
+            </td>
+            <td>{{ item.parsed[0].weight.toFixed(1) }} g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button type="button" class="btn btn-link col-md-3" (click)="show = true">
+      Show Total Nutrition
+    </button>
+  </div>
+  <div class="m-1 card" *ngIf="show">
+    <div class="card-body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Nutrients</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calories</td>
+            <td>
+              {{ totalNutrients.ENERC_KCAL.quantity.toFixed(1) }}
+              {{ totalNutrients.ENERC_KCAL.unit }}
+            </td>
+          </tr>
+          <tr>
+            <td>Fat</td>
+            <td>
+              {{ totalNutrients.FAT.quantity.toFixed(1) }}
+              {{ totalNutrients.FAT.unit }}
+            </td>
+          </tr>
+          <tr>
+            <td>Cholesterol</td>
+            <td>
+              {{ totalNutrients.CHOLE.quantity.toFixed(1) }}
+              {{ totalNutrients.CHOLE.unit }}
+            </td>
+          </tr>
+          <tr>
+            <td>Sodium</td>
+            <td>
+              {{ totalNutrients.NA.quantity.toFixed(1) }}
+              {{ totalNutrients.NA.unit }}
+            </td>
+          </tr>
+          <tr>
+            <td>Carbohydrate(Fiber)</td>
+            <td>
+              {{ totalNutrients.FIBTG.quantity.toFixed(1) }}
+              {{ totalNutrients.FIBTG.unit }}
+            </td>
+          </tr>
+          <tr>
+            <td>Carbohydrate(Sugar)</td>
+            <td>
+              {{ totalNutrients.SUGAR.quantity.toFixed(1) }}
+              {{ totalNutrients.SUGAR.unit }}
+            </td>
+          </tr>
+          <tr>
+            <td>Protein</td>
+            <td>
+              {{ totalNutrients.PROCNT.quantity.toFixed(1) }}
+              {{ totalNutrients.PROCNT.unit }}
+            </td>
+          </tr>
+
+          <tr>
+            <td>Vitamin E</td>
+            <td>
+              {{ totalNutrients.TOCPHA.quantity.toFixed(1) }}
+              {{ totalNutrients.TOCPHA.unit }}
+            </td>
+          </tr>
+          <tr>
+            <td>Calcium</td>
+            <td>
+              {{ totalNutrients.CA.quantity.toFixed(1) }}
+              {{ totalNutrients.CA.unit }}
+            </td>
+          </tr>
+          <tr>
+            <td>Iron</td>
+            <td>
+              {{ totalNutrients.FE.quantity.toFixed(1) }}
+              {{ totalNutrients.FE.unit }}
+            </td>
+          </tr>
+          <tr>
+            <td>Potassium</td>
+            <td>
+              {{ totalNutrients.K.quantity.toFixed(1) }}
+              {{ totalNutrients.K.unit }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

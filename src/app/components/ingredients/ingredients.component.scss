@@ -1,0 +1,29 @@
+.card {
+  margin: 10px auto;
+  border-radius: 15px;
+}
+
+.label {
+  label {
+    color: #7cc242;
+    font-size: 22px;
+  }
+  span {
+    font-size: 12px;
+    color: #7a7a7a;
+  }
+}
+@media (max-width: 600px) {
+  .label {
+    display: block !important;
+    label {
+      color: #7cc242;
+      font-size: 22px;
+    }
+    span {
+      font-size: 12px;
+      color: #7a7a7a;
+      display: inline-block;
+    }
+  }
+}
