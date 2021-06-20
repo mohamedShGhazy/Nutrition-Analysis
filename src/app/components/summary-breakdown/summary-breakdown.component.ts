@@ -17,7 +17,6 @@ export class SummaryBreakdownComponent implements OnInit {
   }
   getResponse() {
     this.services.getResonse.subscribe((res) => {
-      console.log(res);
       this.ingredintList = res.ingredients;
       this.totalNutrients = res.totalNutrients;
     });

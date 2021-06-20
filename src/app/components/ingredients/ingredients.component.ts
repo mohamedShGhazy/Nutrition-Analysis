@@ -25,9 +25,7 @@ export class IngredientsComponent implements OnInit {
       title: "ingredint",
       ingr: ingr,
     };
-    console.log(body);
     this.servce.postMethod(API().nutrition_detailss, body).subscribe((res) => {
-      console.log(res);
       this.servce.responseData(res);
       this.router.navigate(["Summary-Breakdown"]);
     });
